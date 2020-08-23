@@ -1,22 +1,30 @@
+package model;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.time.LocalDate;
 
-@Entity(name = "Movie_test")
-public class Movie {
+@Entity(name = "moviesinfo")
+public class MovieInfo {
 
     @Id
     @GeneratedValue
+    @Column(name = "movieInfoId")
     private Long id;
 
-    @Column
+    @Column(nullable = false)
     private String title;
+
+    @Column(nullable = false)
+    private String genre;
+
+    @Column(nullable = false)
+    private LocalDate releaseDate;
 
     @Column
     private String description;
-
-    public Movie() { }
 
     public Long getId() {
         return id;
@@ -32,6 +40,22 @@ public class Movie {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public LocalDate getReleaseDate() {
+        return releaseDate;
+    }
+
+    public void setReleaseDate(LocalDate releaseDate) {
+        this.releaseDate = releaseDate;
     }
 
     public String getDescription() {
